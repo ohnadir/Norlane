@@ -15,13 +15,14 @@ import {
 // import UserOnboardingScreen from './src/screens/UserOnboardingScreen';
 // import LoginScreen from './src/screens/LoginScreen';
 // import RegisterScreen from './src/screens/RegisterScreen';
-import ForgotPasswordScreen from './src/screens/ForgotPasswordScreen';
+// import ForgotPasswordScreen from './src/screens/ForgotPasswordScreen';
+import OTPScreen from './src/screens/OTPScreen';
 
 function App(): React.JSX.Element {
 
   return (
     <SafeAreaView>
-      <ForgotPasswordScreen/>
+      <OTPScreen/>
     </SafeAreaView>
   );
 }
