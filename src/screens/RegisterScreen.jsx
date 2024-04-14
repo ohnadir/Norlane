@@ -1,7 +1,6 @@
+/* eslint-disable prettier/prettier */
 /* eslint-disable react-native/no-inline-styles */
-/* eslint-disable prettier/prettier */
 /* eslint-disable no-trailing-spaces */
-/* eslint-disable prettier/prettier */
 /* eslint-disable eol-last */
 import { View, Text, TextInput, Pressable } from 'react-native';
 import React, { useState } from 'react';
