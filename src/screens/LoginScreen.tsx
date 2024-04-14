@@ -51,7 +51,7 @@ const LoginScreen = () => {
                         my-6
                     `}
                 >
-                    <Text style={tw `text-center my-auto text-white`}>Get Started</Text>
+                    <Text style={tw `text-center my-auto text-white`}>Login</Text>
                 </LinearGradient>
             </Pressable>
 
