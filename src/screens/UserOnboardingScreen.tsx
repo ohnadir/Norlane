@@ -9,19 +9,12 @@ import tw from 'twrnc';
 import LinearGradient from 'react-native-linear-gradient';
 import { Image } from 'react-native';
 import Slider1 from '../assets/slider2.png';
-import Icon from 'react-native-vector-icons/AntDesign';
+import BackNavition from '../common/BackNavition';
 
 const UserOnboardingScreen = (): React.JSX.Element => {
     return (
         <View style={tw `bg-[#F0EEFD] h-[100%]`}>
-            <Pressable onPress={() =>console.log('done')}>
-                <Icon 
-                    name="arrowleft" 
-                    size={24} 
-                    color="#545454"
-                    style={tw ` mt-[20px] ml-[20px] `}
-                />
-            </Pressable>
+            <BackNavition link="onboarding" />
             
             <View>
                 <Image style={tw `mx-auto`} source={Slider1}/>
