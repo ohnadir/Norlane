@@ -10,13 +10,14 @@ import React from 'react';
 import {
   SafeAreaView,
 } from 'react-native';
-import SplashScreen from './src/screens/SplashScreen';
+// import SplashScreen from './src/screens/SplashScreen';
+import OnboadingScreen from './src/screens/OnboadingScreen';
 
 function App(): React.JSX.Element {
 
   return (
     <SafeAreaView>
-      <SplashScreen/>
+      <OnboadingScreen/>
     </SafeAreaView>
   );
 }
