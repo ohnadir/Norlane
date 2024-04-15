@@ -5,13 +5,13 @@
 /* eslint-disable prettier/prettier */
 /* eslint-disable prettier/prettier */
 /* eslint-disable eol-last */
-import { View, Text, Dimensions, Image, Pressable } from 'react-native';
+import { View, Text, Dimensions, Image } from 'react-native';
 import React, { useState } from 'react';
 import Carousel, { Pagination } from 'react-native-snap-carousel';
 import Slider from '../assets/slider1.png';
 import Slider1 from '../assets/slider2.png';
 import tw from 'twrnc';
-import LinearGradient from 'react-native-linear-gradient';
+import CustomButton from '../common/CustomButton';
 
 const OnboadingScreen = (): React.JSX.Element => {
     const [activeSlide, setActiveSlide] = useState(0);
@@ -30,7 +30,7 @@ const OnboadingScreen = (): React.JSX.Element => {
 
     const _renderItem = ({item, index}: {item: any, index: number}) => {
         return (
-            <View key={index} style={tw ``}>
+            <View key={index}>
                 <Image style={tw `mx-auto`} source={item.image}/>
                 <Text 
                     style={tw `
@@ -77,6 +77,8 @@ const OnboadingScreen = (): React.JSX.Element => {
         );
     };
 
+    
+
     return (
         <View style={tw `bg-[#F0EEFD] h-[100%]`}>
             <Text 
@@ -108,22 +110,12 @@ const OnboadingScreen = (): React.JSX.Element => {
                 { pagination() }
 
             </View>
-
-            <Pressable onPress={() =>console.log('done')}>
-                <LinearGradient 
-                    colors={['#9C8EEF', '#6C57EC', '#5443BB']}
-                    style={tw `
-                        w-[168px]
-                        h-[48px] 
-                        mx-auto 
-                        mt-3
-                        text-center 
-                        rounded-[90px]
-                    `}
-                >
-                    <Text style={tw `text-center my-auto text-white`}>Get Started</Text>
-                </LinearGradient>
-            </Pressable>
+            <CustomButton
+                label="Get Started"
+                onPress={()=>console.log('done')}
+                colours={['#9C8EEF', '#6C57EC', '#5443BB']}
+                customStyle="w-[168px] h-[48px]  mx-auto  mt-3 text-center  rounded-[90px]"
+            />
         </View>
     );
 };

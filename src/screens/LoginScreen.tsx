@@ -1,15 +1,29 @@
 /* eslint-disable prettier/prettier */
 /* eslint-disable no-trailing-spaces */
 /* eslint-disable prettier/prettier */
-/* eslint-disable eol-last */
-import { View, Text, TextInput, Pressable } from 'react-native';
-import React from 'react';
+/* eslint-disable prettier/prettier */
+import { View, Text, Pressable } from 'react-native';
+import React, { useState } from 'react';
 import tw from 'twrnc';
 import BackNavition from '../common/BackNavition';
-import LinearGradient from 'react-native-linear-gradient';
 import Icon from 'react-native-vector-icons/Ionicons';
+import PasswordInput from '../common/PasswordInput';
+import TextCustomInput from '../common/TextCustomInput';
+import CustomButton from '../common/CustomButton';
 
 const LoginScreen = () => {
+    const [auth, setAuth] = useState({
+        email: '',
+        password: '',
+    });
+    const handleChange = (event : string, name: string)  =>{
+        setAuth(prevForm => ({...prevForm, [name] : event }));
+    };
+
+    const handleSubmit = ()=>{
+        console.log(auth);
+    };
+
     return (
         <View style={tw `bg-[#EDF9F0] h-[100%] p-[20px]`}>
             <BackNavition link="onboarding" />
@@ -19,41 +33,30 @@ const LoginScreen = () => {
                 <Text style={tw `text-[#919191] text-[14px] text-center  leading-[21px]`}>Please Enter Your Personal Data</Text>
             </View>
 
-            <View style={tw `mb-4`}>
-                <Text style={tw `text-[#545454]  text-[16px] leading-[24px] mb-[8px]`}>E-mail</Text>
-                <TextInput
-                    style={tw `bg-[#FEFEFE] h-[48px] rounded-[45px]  text-[14px] px-4`} 
-                    placeholder="Enter Your Email"
-                />
-            </View>
-
-            <View style={tw `mb-4`}>
-                <Text style={tw `text-[#545454]  text-[16px] leading-[24px] mb-[8px]`}>Enter Your Password</Text>
-                <TextInput
-                    style={tw `bg-[#FEFEFE] h-[48px] rounded-[45px] text-[14px] px-4`} 
-                    placeholder="Enter Your Password"
-                />
-            </View>
+            <TextCustomInput
+                placeholder="Enter Your Email"
+                label="Email"
+                onChange={(event)=> handleChange(event, 'email')}
+                customStyle="mb-4"
+            />
+            
+            <PasswordInput
+                placeholder="Enter Your Password"
+                onChange={(event)=>handleChange(event, 'password')}
+                label="Password"
+                customStyle="mb-4"
+            />
 
             <Pressable onPress={() =>console.log('link')}>
                 <Text style={tw `text-[#8670C6] text-[12px] text-right underline  leading-[18px]`}>Forgot Password?</Text>
             </Pressable>
 
-            <Pressable onPress={() =>console.log('done')}>
-                <LinearGradient 
-                    colors={['#8EE88E', '#80D180', '#6BAE6B']}
-                    style={tw `
-                        w-[100%]
-                        h-[48px]
-                        mx-auto 
-                        text-center 
-                        rounded-[90px]
-                        my-6
-                    `}
-                >
-                    <Text style={tw `text-center my-auto text-white`}>Login</Text>
-                </LinearGradient>
-            </Pressable>
+            <CustomButton
+                label="Log in"
+                onPress={handleSubmit}
+                colours={['#8EE88E', '#80D180', '#6BAE6B']}
+                customStyle="w-[100%] h-[48px] mx-auto text-center rounded-[90px] my-6"
+            />
 
             <View style={tw `flex flex-row items-center gap-[6px] mb-4`}>
                 <View style={tw `w-[35%] h-[1px] bg-[#B5B5B5]`} />
