@@ -21,13 +21,10 @@ import EventSlider from '../components/Home/EventSlider';
 // import DrawerNavigation from '../navigation/DrawerNavigation';
 
 // const Drawer = createDrawerNavigator();
-const HomeScreen = ():React.JSX.Element => {
+const HomeScreen = ({navigation}: {navigation: any}):React.JSX.Element => {
     
     return (
         <View style={tw `bg-[#FFFFFF] h-[100%] `}>
-
-
-
             {/* <DrawerNavigation/> */}
             {/* header section start*/}
             <View style={tw `flex flex-row items-center justify-between pt-[20px] px-[20px]`}>
@@ -48,7 +45,7 @@ const HomeScreen = ():React.JSX.Element => {
                     <Pressable>
                         <Feather name="bell" size={24} color="#6C6C6C" />
                     </Pressable>
-                    <Pressable>
+                    <Pressable onPress={()=>navigation.openDrawer()}>
                         <Feather name="list" size={24} color="#6C6C6C" />
                     </Pressable>
                 </View>

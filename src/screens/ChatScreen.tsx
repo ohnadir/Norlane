@@ -1,5 +1,4 @@
 /* eslint-disable prettier/prettier */
-/* eslint-disable react/no-unstable-nested-components */
 /* eslint-disable prettier/prettier */
 /* eslint-disable no-trailing-spaces */
 /* eslint-disable react-native/no-inline-styles */
@@ -68,6 +67,8 @@ const ChatScreen = () => {
         },
     ];
 
+    
+
     return (
         <ScrollView showsHorizontalScrollIndicator={false}>
             <View style={tailwind `mb-16`}>
@@ -106,13 +107,16 @@ const ChatScreen = () => {
 
                 
                     <View>
-                        <FlatList
-                            showsHorizontalScrollIndicator={false}
-                            horizontal={false}
-                            data={user}
-                            renderItem={({item}) => <ConversationUser item={item}/>}
-                            keyExtractor={(item:IActiveUser) => item.name.toString()}
-                        />
+                        {
+                            user?.map((item, index)=>{
+                                return (
+                                    <View key={index}>
+                                        <ConversationUser item={item}/>
+                                    </View>
+                                );
+                            })
+                        }
+                        
                     </View>
 
             </View>

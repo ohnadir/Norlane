@@ -14,12 +14,14 @@ import Octicons from 'react-native-vector-icons/Octicons';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import HomeScreen from './HomeScreen';
 import ProfileScreen from './ProfileScreen';
-import CartScreen from './CartScreen';
 import LinearGradient from 'react-native-linear-gradient';
 import ChatScreen from './ChatScreen';
+import { useRoute } from '@react-navigation/native';
 
 const BottomTabScreen = () => {
     const Tab = createBottomTabNavigator();
+    const route = useRoute();
+    console.log(route.name);
     return (
         <Tab.Navigator
           screenOptions={{
@@ -93,6 +95,7 @@ const BottomTabScreen = () => {
                     name="Inbox"
                     component={ChatScreen}
                     options={{
+                      // tabBarStyle: {display: "none"},
                         tabBarLabel: "Inbox",
                         tabBarLabelStyle: { marginTop: -8 },
                         tabBarIcon: ({ focused }) =>
